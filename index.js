@@ -71,7 +71,7 @@ client.on('messageCreate', (message) => {
     if (message.content.startsWith(`${prefix}setchannel`)) {
         
         if (!message.member.permissions.has('manag_guild')) {
-            return message.reply("ليس لديك الصلاحيه الكافيه لاستخدام هذا الامر ");ephermal:true
+            return message.reply("ليس لديك الصلاحيه الكافيه لاستخدام هذا الامر "); 
         }
 
         
