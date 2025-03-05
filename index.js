@@ -1,3 +1,9 @@
+const {Client , GatewayIntentBits , Partials} = require ('discord.js');
+const { prefix } = require ('./config.json');
+const client = new Client({
+  intents: ['Guilds', 'GuildMembers', 'GuildMessages', 'MessageContent', GatewayIntentBits.Guilds],
+  partials: [Partials.Channel],
+});
 const azkar = [
     "سبحان الله",
     "الحمد لله",
