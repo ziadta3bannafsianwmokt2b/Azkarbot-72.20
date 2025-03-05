@@ -40,7 +40,7 @@ function getRandomZikr() {
 
     setInterval(() => {
         sendAzkarToTargetChannel();
-    }, 300000); 
+    }, 300000); // يمكنك تعديل الوقت اللي يرسل فيه الاذكار من هنا
 });
 
     const channel = client.channels.cache.get(targetChannelId);
@@ -62,9 +62,9 @@ client.on('messageCreate', (message) => {
     if (message.author.bot) return;
 
     
-    if (message.content.startsWith('~setchannel')) {
+    if (message.content.startsWith(`${prefix}setchannel`)) {
         
-        if (!message.member.permissions.has('MANAGE_GUILD')) {
+        if (!message.member.permissions.has('manag_guild')) {
             return message.reply("ليس لديك الصلاحيه الكافيه لاستخدام هذا الامر ");ephermal:true
         }
 
