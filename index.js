@@ -1,5 +1,5 @@
 const {Client , GatewayIntentBits , Partials} = require ('discord.js');
-const { prefix } = require ('./config.json');
+const { prefix , token } = require ('./config.json');
 const client = new Client({
   intents: ['Guilds', 'GuildMembers', 'GuildMessages', 'MessageContent', GatewayIntentBits.Guilds],
   partials: [Partials.Channel],
@@ -82,6 +82,7 @@ client.on('messageCreate', (message) => {
         } else {
             message.reply("الامر يجب ان يكون زي كده !setchannel #اسم القناة");
         }
+client.login(token)
     }
 
 
