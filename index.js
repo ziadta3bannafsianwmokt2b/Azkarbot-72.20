@@ -43,50 +43,38 @@ function getRandomZikr() {
     }, 300000); 
 });
 
-
-function sendAzkarToTargetChannel() {
-    if (!targetChannelId) {
-        console.log("No target channel set. Use !setchannel to set a channel.");
-        return;
-    }
-
     const channel = client.channels.cache.get(targetChannelId);
     if (channel) {
         const zikr = getRandomZikr();
 
-        // Create an embed
+        
         const embed = new EmbedBuilder()
             .setTitle("اذكار")
             .setDescription(zikr)
-            .setColor("#0099FF") // You can change the color
-            .setFooter({ text: "Azkar messages", iconURL: "" }) // Add a footer
-            .setTimestamp(); // Add a timestamp
+            .setColor("#0099FF") 
+            .setFooter({ text: "الاذكار", iconURL: "" }) 
+            .setTimestamp();
 
         channel.send({ embeds: [embed] });
-    } else {
-        console.log("Target channel not found. Make sure the bot has access to the channel.");
-    }
-}
-
 
 client.on('messageCreate', (message) => {
     
     if (message.author.bot) return;
 
-    \
+    
     if (message.content.startsWith('~setchannel')) {
         
         if (!message.member.permissions.has('MANAGE_GUILD')) {
-            return message.reply("You do not have permission to set the channel.");
+            return message.reply("ليس لديك الصلاحيه الكافيه لاستخدام هذا الامر ");ephermal:true
         }
 
         
         const channel = message.mentions.channels.first();
         if (channel) {
             targetChannelId = channel.id;
-            message.reply(`Azkar will now be sent in ${channel.name}.`);
+            message.reply(`الاذكار هتتبعت في${channel.name}.`);
         } else {
-            message.reply("Please mention a valid channel. Example: `!setchannel #azkar`");
+            message.reply("الامر يجب ان يكون زي كده !setchannel #اسم القناة");
         }
     }
 
