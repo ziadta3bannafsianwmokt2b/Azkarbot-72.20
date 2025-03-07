@@ -1,4 +1,4 @@
-const {Client , GatewayIntentBits , Partials} = require ('discord.js');
+const {Client , GatewayIntentBits , Partials , EmbedBuilder } = require ('discord.js');
 const { prefix , token } = require ('./config.json');
 const client = new Client({
   intents: ['Guilds', 'GuildMembers', 'GuildMessages', 'MessageContent', GatewayIntentBits.Guilds],
